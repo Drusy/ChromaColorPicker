@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     
     let colorPicker = ChromaColorPicker()
     let brightnessSlider = ChromaBrightnessSlider()
+    let rainbowSlider = ChromaRainbowSlider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorPicker()
         setupBrightnessSlider()
+        setupRainbowSlider()
         setupColorPickerHandles()
     }
     
@@ -60,6 +62,22 @@ class ViewController: UIViewController {
             brightnessSlider.topAnchor.constraint(equalTo: colorPicker.bottomAnchor, constant: 28),
             brightnessSlider.widthAnchor.constraint(equalTo: colorPicker.widthAnchor, multiplier: 0.9),
             brightnessSlider.heightAnchor.constraint(equalTo: brightnessSlider.widthAnchor, multiplier: brightnessSliderWidthHeightRatio)
+        ])
+    }
+    
+    private func setupRainbowSlider() {
+        // Style
+        rainbowSlider.handle.borderWidth = 3.0 // Example of customizing the handle's properties.
+        
+        // Layout
+        rainbowSlider.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rainbowSlider)
+        
+        NSLayoutConstraint.activate([
+            rainbowSlider.centerXAnchor.constraint(equalTo: brightnessSlider.centerXAnchor),
+            rainbowSlider.topAnchor.constraint(equalTo: brightnessSlider.bottomAnchor, constant: 28),
+            rainbowSlider.widthAnchor.constraint(equalTo: brightnessSlider.widthAnchor, multiplier: 1),
+            rainbowSlider.heightAnchor.constraint(equalTo: rainbowSlider.widthAnchor, multiplier: brightnessSliderWidthHeightRatio)
         ])
     }
     

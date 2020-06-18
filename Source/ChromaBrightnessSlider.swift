@@ -119,7 +119,7 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
     }
     
     // MARK: - Private
-    private let sliderTrackView = SliderTrackView()
+    let sliderTrackView = SliderTrackView()
     
     /// The amount of padding caused by visual stylings
     private var horizontalPadding: CGFloat {
@@ -135,7 +135,7 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
         return bounds.insetBy(dx: horizontalOffset, dy: 0)
     }
     
-    private func commonInit() {
+    func commonInit() {
         backgroundColor = .clear
         setupSliderTrackView()
         setupSliderHandleView()
@@ -159,7 +159,7 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
         addSubview(handle)
     }
     
-    private func updateControl(to value: CGFloat) {
+    func updateControl(to value: CGFloat) {
         let brightness = 1 - max(0, min(1, value))
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
@@ -190,7 +190,7 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
     private func updateTrackViewGradient(for color: UIColor) {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        sliderTrackView.gradientValues = (color, .black)
+        sliderTrackView.gradientValues = [color, .black]
         CATransaction.commit()
     }
     

@@ -9,9 +9,9 @@
 import UIKit
 
 internal class SliderTrackView: UIView {
-    typealias GradientValues = (start: UIColor, end: UIColor)
+    typealias GradientValues = [UIColor]
     
-    var gradientValues: GradientValues = (.white, .black) {
+    var gradientValues: GradientValues = [.white, .black] {
         didSet { updateGradient(for: gradientValues) }
     }
     
@@ -32,11 +32,11 @@ internal class SliderTrackView: UIView {
     }
     
     func updateGradient(for values: GradientValues) {
-        gradient.colors = [values.start.cgColor, values.end.cgColor]
+        gradient.colors = values.map { $0.cgColor }
     }
     
     // MARK: - Private
-    private let gradient = CAGradientLayer()
+    let gradient = CAGradientLayer()
     
     private func commonInit() {
         gradient.masksToBounds = true
