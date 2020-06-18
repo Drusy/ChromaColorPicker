@@ -12,8 +12,8 @@ import Foundation
 
 public class ChromaRainbowSlider: ChromaBrightnessSlider {
     
-    var colors: [UIColor] = [.white, .black]
-    var handleColor: UIColor = .white
+    public var colors: [UIColor] = [.white, .black]
+    public var handleColor: UIColor = .white
     
     override func commonInit() {
         super.commonInit()
