@@ -159,7 +159,12 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
         addSubview(handle)
     }
     
-    func updateControl(to value: CGFloat) {
+    private func updateControl(to value: CGFloat) {
+        updateHandleColor(from: value)
+        moveHandle(to: value)
+    }
+    
+    func updateHandleColor(from value: CGFloat) {
         let brightness = 1 - max(0, min(1, value))
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
@@ -171,8 +176,6 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
         CATransaction.setDisableActions(true)
         handle.handleColor = newColor
         CATransaction.commit()
-        
-        moveHandle(to: value)
     }
     
     private func updateTrackColor(to color: UIColor) {

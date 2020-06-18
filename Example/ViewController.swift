@@ -68,7 +68,13 @@ class ViewController: UIViewController {
     private func setupRainbowSlider() {
         // Style
         rainbowSlider.handle.borderWidth = 3.0 // Example of customizing the handle's properties.
-        
+        rainbowSlider.colors = [
+            UIColor.blue,
+            UIColor.white,
+            UIColor.red
+        ]
+        rainbowSlider.handleColor = nil
+
         // Layout
         rainbowSlider.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rainbowSlider)
