@@ -160,8 +160,8 @@ public class ChromaBrightnessSlider: UIControl, ChromaControlStylable {
     }
     
     private func updateControl(to value: CGFloat) {
-        updateHandleColor(from: value)
         moveHandle(to: value)
+        updateHandleColor(from: value)
     }
     
     func updateHandleColor(from value: CGFloat) {
